@@ -1,3 +1,4 @@
+import 'package:adaptive_theme/adaptive_theme.dart';
 import 'package:ease_player_bloc/domain/constants/constants.dart';
 import 'package:ease_player_bloc/domain/models/history.dart';
 import 'package:flutter/material.dart';
@@ -22,8 +23,9 @@ void main(List<String> args) async {
     Hive.registerAdapter(FavouritesModelAdapter());
   }
   await configureInjection();
+  final savedThemeMode = await AdaptiveTheme.getThemeMode();
 
-  runApp(VideoApp());
+  runApp(VideoApp(savedThemeMode: savedThemeMode));
 }
 
 List thumblist = [];
@@ -31,7 +33,9 @@ List thumblist = [];
 List<String> pathList = [];
 
 class VideoApp extends StatelessWidget {
-  VideoApp({Key? key}) : super(key: key);
+  final AdaptiveThemeMode? savedThemeMode;
+
+  VideoApp({Key? key, this.savedThemeMode}) : super(key: key);
 
   bool permissionGranted = false;
 
@@ -51,26 +55,37 @@ class VideoApp extends StatelessWidget {
     print("permision $permissionGranted");
     _getStoragePermission();
     return MultiBlocProvider(
-      providers: [
-        BlocProvider(create: (ctx) => getIt<HomeBloc>()),
-        BlocProvider(create: (ctx) => getIt<VideoBloc>()),
-      ],
-      child: MaterialApp(
-        theme: ThemeData(
-          listTileTheme: const ListTileThemeData(
-            iconColor: Color(0x617d7d7d),
-          ),
-          floatingActionButtonTheme: const FloatingActionButtonThemeData(
-              backgroundColor: Color(0xff233F78)),
-          textButtonTheme: TextButtonThemeData(
-              style: TextButton.styleFrom(
-            primary: const Color(0xff233F78),
-          )),
-          scaffoldBackgroundColor: const Color.fromARGB(255, 251, 244, 244),
-          primaryColor: colorWhite,
-        ),
-        home: const SplashScreen(),
+        providers: [
+          BlocProvider(create: (ctx) => getIt<HomeBloc>()),
+          BlocProvider(create: (ctx) => getIt<VideoBloc>()),
+        ],
+        child: AdaptiveTheme(
+          light: theme(),
+          dark: ThemeData.dark(),
+          initial: savedThemeMode ?? AdaptiveThemeMode.light,
+          builder: (theme, darkTheme) {
+            return MaterialApp(
+                theme: theme,
+                darkTheme: darkTheme,
+                home: const SplashScreen(),
+                debugShowCheckedModeBanner: false);
+          },
+        ));
+  }
+
+  ThemeData theme() {
+    return ThemeData(
+      listTileTheme: const ListTileThemeData(
+        iconColor: Color(0x617d7d7d),
       ),
+      floatingActionButtonTheme: const FloatingActionButtonThemeData(
+          backgroundColor: Color(0xff233F78)),
+      textButtonTheme: TextButtonThemeData(
+          style: TextButton.styleFrom(
+        primary: const Color(0xff233F78),
+      )),
+      scaffoldBackgroundColor: const Color.fromARGB(255, 251, 244, 244),
+      primaryColor: const Color(0xffffffff),
     );
   }
 }

@@ -1,5 +1,6 @@
 import 'package:bloc/bloc.dart';
 import 'package:flutter/foundation.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:hive_flutter/hive_flutter.dart';
 import 'package:injectable/injectable.dart';
@@ -48,6 +49,9 @@ class VideoBloc extends Bloc<VideoEvent, VideoState> {
 
       emit(VideoState(historyList: _dB.values.toList(), favouritesList: []));
     });
+
+    //DeleteHistory
+
     on<DelHistory>((event, emit) async {
       final _dB = await Hive.openBox<HistoryModel>("_hisdB");
 

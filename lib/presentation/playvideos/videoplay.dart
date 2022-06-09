@@ -22,6 +22,7 @@ class _VideoPlayState extends State<VideoPlay> {
 
   @override
   void initState() {
+    
     BetterPlayerControlsConfiguration controlsConfiguration =
         const BetterPlayerControlsConfiguration(
       progressBarPlayedColor: Colors.blueGrey,
@@ -30,8 +31,7 @@ class _VideoPlayState extends State<VideoPlay> {
     );
 
     super.initState();
-    var _model = HistoryModel(path: widget.path);
-    BlocProvider.of<VideoBloc>(context).add(AddHistory(model: _model));
+   
 
     BetterPlayerDataSource betterPlayerDataSource =
         BetterPlayerDataSource(BetterPlayerDataSourceType.file, widget.path);
@@ -43,6 +43,8 @@ class _VideoPlayState extends State<VideoPlay> {
         ),
         betterPlayerDataSource: betterPlayerDataSource);
     _setupDataSource();
+    
+    
 
     _betterPlayerController.addEventsListener((BetterPlayerEvent event) {
       if (event.betterPlayerEventType == BetterPlayerEventType.initialized) {
@@ -67,6 +69,7 @@ class _VideoPlayState extends State<VideoPlay> {
 
   @override
   Widget build(BuildContext context) {
+     
     return AspectRatio(
       aspectRatio:
           _betterPlayerController.videoPlayerController!.value.aspectRatio,

@@ -1,14 +1,16 @@
 import 'package:adaptive_theme/adaptive_theme.dart';
+import 'package:ease_player_bloc/application/home/home_bloc.dart';
+import 'package:ease_player_bloc/main.dart';
 import 'package:ease_player_bloc/presentation/drawer%20section/otherscreens.dart';
 import 'package:ease_player_bloc/presentation/drawer%20section/watchhistory.dart';
 import 'package:ease_player_bloc/presentation/drawer%20section/widgets/menuitems.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 
 import '../widgets/navigations/nextpage.dart';
 
 class MenuDrawer extends StatelessWidget {
   MenuDrawer({Key? key}) : super(key: key);
-  bool isSwitched = false;
   @override
   Widget build(BuildContext context) {
     return SizedBox(
@@ -31,18 +33,23 @@ class MenuDrawer extends StatelessWidget {
                 ),
               ),
               const SizedBox(height: 20),
-              MenuItems(
-                  menulisticon: Icons.dark_mode,
-                  menulisttitle: 'Darkmode',
-                  trailingitem: Switch(
-                      value: isSwitched,
-                      onChanged: (value) {
-                        isSwitched = value;
+              BlocBuilder<HomeBloc, HomeState>(
+                builder: (context, state) {
+                  return MenuItems(
+                      menulisticon: Icons.dark_mode,
+                      menulisttitle: 'Darkmode',
+                      trailingitem: Switch(
+                          value: state.theme,
+                          onChanged: (value) {
+                            BlocProvider.of<HomeBloc>(context)
+                                .add(Changetheme(theme: value));
 
-                        isSwitched
-                            ? AdaptiveTheme.of(context).setDark()
-                            : AdaptiveTheme.of(context).setLight();
-                      })),
+                            !state.theme
+                                ? AdaptiveTheme.of(context).setDark()
+                                : AdaptiveTheme.of(context).setLight();
+                          }));
+                },
+              ),
               MenuItems(
                   menulisticon: Icons.history,
                   menulisttitle: 'Watch History',

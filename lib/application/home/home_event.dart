@@ -6,6 +6,9 @@ class HomeEvent with _$HomeEvent {
   const factory HomeEvent.getbottomnavbarpage({required int index}) = Getbottomnavbarpage;
   const factory HomeEvent.getthumbnail() = Getthumbnail;
   const factory HomeEvent.viewthumbnail({thumbnails}) = ViewThumbnail;
+    const factory HomeEvent.changetheme({theme}) = Changetheme;
+
+  
 
 
 

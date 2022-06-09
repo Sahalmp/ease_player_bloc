@@ -22,6 +22,7 @@ mixin _$HomeEvent {
     required TResult Function(int index) getbottomnavbarpage,
     required TResult Function() getthumbnail,
     required TResult Function(dynamic thumbnails) viewthumbnail,
+    required TResult Function(dynamic theme) changetheme,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -30,6 +31,7 @@ mixin _$HomeEvent {
     TResult Function(int index)? getbottomnavbarpage,
     TResult Function()? getthumbnail,
     TResult Function(dynamic thumbnails)? viewthumbnail,
+    TResult Function(dynamic theme)? changetheme,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -38,6 +40,7 @@ mixin _$HomeEvent {
     TResult Function(int index)? getbottomnavbarpage,
     TResult Function()? getthumbnail,
     TResult Function(dynamic thumbnails)? viewthumbnail,
+    TResult Function(dynamic theme)? changetheme,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -47,6 +50,7 @@ mixin _$HomeEvent {
     required TResult Function(Getbottomnavbarpage value) getbottomnavbarpage,
     required TResult Function(Getthumbnail value) getthumbnail,
     required TResult Function(ViewThumbnail value) viewthumbnail,
+    required TResult Function(Changetheme value) changetheme,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -55,6 +59,7 @@ mixin _$HomeEvent {
     TResult Function(Getbottomnavbarpage value)? getbottomnavbarpage,
     TResult Function(Getthumbnail value)? getthumbnail,
     TResult Function(ViewThumbnail value)? viewthumbnail,
+    TResult Function(Changetheme value)? changetheme,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -63,6 +68,7 @@ mixin _$HomeEvent {
     TResult Function(Getbottomnavbarpage value)? getbottomnavbarpage,
     TResult Function(Getthumbnail value)? getthumbnail,
     TResult Function(ViewThumbnail value)? viewthumbnail,
+    TResult Function(Changetheme value)? changetheme,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -127,6 +133,7 @@ class _$Initialize implements Initialize {
     required TResult Function(int index) getbottomnavbarpage,
     required TResult Function() getthumbnail,
     required TResult Function(dynamic thumbnails) viewthumbnail,
+    required TResult Function(dynamic theme) changetheme,
   }) {
     return initialize();
   }
@@ -138,6 +145,7 @@ class _$Initialize implements Initialize {
     TResult Function(int index)? getbottomnavbarpage,
     TResult Function()? getthumbnail,
     TResult Function(dynamic thumbnails)? viewthumbnail,
+    TResult Function(dynamic theme)? changetheme,
   }) {
     return initialize?.call();
   }
@@ -149,6 +157,7 @@ class _$Initialize implements Initialize {
     TResult Function(int index)? getbottomnavbarpage,
     TResult Function()? getthumbnail,
     TResult Function(dynamic thumbnails)? viewthumbnail,
+    TResult Function(dynamic theme)? changetheme,
     required TResult orElse(),
   }) {
     if (initialize != null) {
@@ -164,6 +173,7 @@ class _$Initialize implements Initialize {
     required TResult Function(Getbottomnavbarpage value) getbottomnavbarpage,
     required TResult Function(Getthumbnail value) getthumbnail,
     required TResult Function(ViewThumbnail value) viewthumbnail,
+    required TResult Function(Changetheme value) changetheme,
   }) {
     return initialize(this);
   }
@@ -175,6 +185,7 @@ class _$Initialize implements Initialize {
     TResult Function(Getbottomnavbarpage value)? getbottomnavbarpage,
     TResult Function(Getthumbnail value)? getthumbnail,
     TResult Function(ViewThumbnail value)? viewthumbnail,
+    TResult Function(Changetheme value)? changetheme,
   }) {
     return initialize?.call(this);
   }
@@ -186,6 +197,7 @@ class _$Initialize implements Initialize {
     TResult Function(Getbottomnavbarpage value)? getbottomnavbarpage,
     TResult Function(Getthumbnail value)? getthumbnail,
     TResult Function(ViewThumbnail value)? viewthumbnail,
+    TResult Function(Changetheme value)? changetheme,
     required TResult orElse(),
   }) {
     if (initialize != null) {
@@ -269,6 +281,7 @@ class _$Getbottomnavbarpage implements Getbottomnavbarpage {
     required TResult Function(int index) getbottomnavbarpage,
     required TResult Function() getthumbnail,
     required TResult Function(dynamic thumbnails) viewthumbnail,
+    required TResult Function(dynamic theme) changetheme,
   }) {
     return getbottomnavbarpage(index);
   }
@@ -280,6 +293,7 @@ class _$Getbottomnavbarpage implements Getbottomnavbarpage {
     TResult Function(int index)? getbottomnavbarpage,
     TResult Function()? getthumbnail,
     TResult Function(dynamic thumbnails)? viewthumbnail,
+    TResult Function(dynamic theme)? changetheme,
   }) {
     return getbottomnavbarpage?.call(index);
   }
@@ -291,6 +305,7 @@ class _$Getbottomnavbarpage implements Getbottomnavbarpage {
     TResult Function(int index)? getbottomnavbarpage,
     TResult Function()? getthumbnail,
     TResult Function(dynamic thumbnails)? viewthumbnail,
+    TResult Function(dynamic theme)? changetheme,
     required TResult orElse(),
   }) {
     if (getbottomnavbarpage != null) {
@@ -306,6 +321,7 @@ class _$Getbottomnavbarpage implements Getbottomnavbarpage {
     required TResult Function(Getbottomnavbarpage value) getbottomnavbarpage,
     required TResult Function(Getthumbnail value) getthumbnail,
     required TResult Function(ViewThumbnail value) viewthumbnail,
+    required TResult Function(Changetheme value) changetheme,
   }) {
     return getbottomnavbarpage(this);
   }
@@ -317,6 +333,7 @@ class _$Getbottomnavbarpage implements Getbottomnavbarpage {
     TResult Function(Getbottomnavbarpage value)? getbottomnavbarpage,
     TResult Function(Getthumbnail value)? getthumbnail,
     TResult Function(ViewThumbnail value)? viewthumbnail,
+    TResult Function(Changetheme value)? changetheme,
   }) {
     return getbottomnavbarpage?.call(this);
   }
@@ -328,6 +345,7 @@ class _$Getbottomnavbarpage implements Getbottomnavbarpage {
     TResult Function(Getbottomnavbarpage value)? getbottomnavbarpage,
     TResult Function(Getthumbnail value)? getthumbnail,
     TResult Function(ViewThumbnail value)? viewthumbnail,
+    TResult Function(Changetheme value)? changetheme,
     required TResult orElse(),
   }) {
     if (getbottomnavbarpage != null) {
@@ -391,6 +409,7 @@ class _$Getthumbnail implements Getthumbnail {
     required TResult Function(int index) getbottomnavbarpage,
     required TResult Function() getthumbnail,
     required TResult Function(dynamic thumbnails) viewthumbnail,
+    required TResult Function(dynamic theme) changetheme,
   }) {
     return getthumbnail();
   }
@@ -402,6 +421,7 @@ class _$Getthumbnail implements Getthumbnail {
     TResult Function(int index)? getbottomnavbarpage,
     TResult Function()? getthumbnail,
     TResult Function(dynamic thumbnails)? viewthumbnail,
+    TResult Function(dynamic theme)? changetheme,
   }) {
     return getthumbnail?.call();
   }
@@ -413,6 +433,7 @@ class _$Getthumbnail implements Getthumbnail {
     TResult Function(int index)? getbottomnavbarpage,
     TResult Function()? getthumbnail,
     TResult Function(dynamic thumbnails)? viewthumbnail,
+    TResult Function(dynamic theme)? changetheme,
     required TResult orElse(),
   }) {
     if (getthumbnail != null) {
@@ -428,6 +449,7 @@ class _$Getthumbnail implements Getthumbnail {
     required TResult Function(Getbottomnavbarpage value) getbottomnavbarpage,
     required TResult Function(Getthumbnail value) getthumbnail,
     required TResult Function(ViewThumbnail value) viewthumbnail,
+    required TResult Function(Changetheme value) changetheme,
   }) {
     return getthumbnail(this);
   }
@@ -439,6 +461,7 @@ class _$Getthumbnail implements Getthumbnail {
     TResult Function(Getbottomnavbarpage value)? getbottomnavbarpage,
     TResult Function(Getthumbnail value)? getthumbnail,
     TResult Function(ViewThumbnail value)? viewthumbnail,
+    TResult Function(Changetheme value)? changetheme,
   }) {
     return getthumbnail?.call(this);
   }
@@ -450,6 +473,7 @@ class _$Getthumbnail implements Getthumbnail {
     TResult Function(Getbottomnavbarpage value)? getbottomnavbarpage,
     TResult Function(Getthumbnail value)? getthumbnail,
     TResult Function(ViewThumbnail value)? viewthumbnail,
+    TResult Function(Changetheme value)? changetheme,
     required TResult orElse(),
   }) {
     if (getthumbnail != null) {
@@ -529,6 +553,7 @@ class _$ViewThumbnail implements ViewThumbnail {
     required TResult Function(int index) getbottomnavbarpage,
     required TResult Function() getthumbnail,
     required TResult Function(dynamic thumbnails) viewthumbnail,
+    required TResult Function(dynamic theme) changetheme,
   }) {
     return viewthumbnail(thumbnails);
   }
@@ -540,6 +565,7 @@ class _$ViewThumbnail implements ViewThumbnail {
     TResult Function(int index)? getbottomnavbarpage,
     TResult Function()? getthumbnail,
     TResult Function(dynamic thumbnails)? viewthumbnail,
+    TResult Function(dynamic theme)? changetheme,
   }) {
     return viewthumbnail?.call(thumbnails);
   }
@@ -551,6 +577,7 @@ class _$ViewThumbnail implements ViewThumbnail {
     TResult Function(int index)? getbottomnavbarpage,
     TResult Function()? getthumbnail,
     TResult Function(dynamic thumbnails)? viewthumbnail,
+    TResult Function(dynamic theme)? changetheme,
     required TResult orElse(),
   }) {
     if (viewthumbnail != null) {
@@ -566,6 +593,7 @@ class _$ViewThumbnail implements ViewThumbnail {
     required TResult Function(Getbottomnavbarpage value) getbottomnavbarpage,
     required TResult Function(Getthumbnail value) getthumbnail,
     required TResult Function(ViewThumbnail value) viewthumbnail,
+    required TResult Function(Changetheme value) changetheme,
   }) {
     return viewthumbnail(this);
   }
@@ -577,6 +605,7 @@ class _$ViewThumbnail implements ViewThumbnail {
     TResult Function(Getbottomnavbarpage value)? getbottomnavbarpage,
     TResult Function(Getthumbnail value)? getthumbnail,
     TResult Function(ViewThumbnail value)? viewthumbnail,
+    TResult Function(Changetheme value)? changetheme,
   }) {
     return viewthumbnail?.call(this);
   }
@@ -588,6 +617,7 @@ class _$ViewThumbnail implements ViewThumbnail {
     TResult Function(Getbottomnavbarpage value)? getbottomnavbarpage,
     TResult Function(Getthumbnail value)? getthumbnail,
     TResult Function(ViewThumbnail value)? viewthumbnail,
+    TResult Function(Changetheme value)? changetheme,
     required TResult orElse(),
   }) {
     if (viewthumbnail != null) {
@@ -607,9 +637,158 @@ abstract class ViewThumbnail implements HomeEvent {
 }
 
 /// @nodoc
+abstract class _$$ChangethemeCopyWith<$Res> {
+  factory _$$ChangethemeCopyWith(
+          _$Changetheme value, $Res Function(_$Changetheme) then) =
+      __$$ChangethemeCopyWithImpl<$Res>;
+  $Res call({dynamic theme});
+}
+
+/// @nodoc
+class __$$ChangethemeCopyWithImpl<$Res> extends _$HomeEventCopyWithImpl<$Res>
+    implements _$$ChangethemeCopyWith<$Res> {
+  __$$ChangethemeCopyWithImpl(
+      _$Changetheme _value, $Res Function(_$Changetheme) _then)
+      : super(_value, (v) => _then(v as _$Changetheme));
+
+  @override
+  _$Changetheme get _value => super._value as _$Changetheme;
+
+  @override
+  $Res call({
+    Object? theme = freezed,
+  }) {
+    return _then(_$Changetheme(
+      theme: theme == freezed ? _value.theme : theme,
+    ));
+  }
+}
+
+/// @nodoc
+
+class _$Changetheme implements Changetheme {
+  const _$Changetheme({this.theme});
+
+  @override
+  final dynamic theme;
+
+  @override
+  String toString() {
+    return 'HomeEvent.changetheme(theme: $theme)';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$Changetheme &&
+            const DeepCollectionEquality().equals(other.theme, theme));
+  }
+
+  @override
+  int get hashCode =>
+      Object.hash(runtimeType, const DeepCollectionEquality().hash(theme));
+
+  @JsonKey(ignore: true)
+  @override
+  _$$ChangethemeCopyWith<_$Changetheme> get copyWith =>
+      __$$ChangethemeCopyWithImpl<_$Changetheme>(this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() initialize,
+    required TResult Function(int index) getbottomnavbarpage,
+    required TResult Function() getthumbnail,
+    required TResult Function(dynamic thumbnails) viewthumbnail,
+    required TResult Function(dynamic theme) changetheme,
+  }) {
+    return changetheme(theme);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult Function()? initialize,
+    TResult Function(int index)? getbottomnavbarpage,
+    TResult Function()? getthumbnail,
+    TResult Function(dynamic thumbnails)? viewthumbnail,
+    TResult Function(dynamic theme)? changetheme,
+  }) {
+    return changetheme?.call(theme);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? initialize,
+    TResult Function(int index)? getbottomnavbarpage,
+    TResult Function()? getthumbnail,
+    TResult Function(dynamic thumbnails)? viewthumbnail,
+    TResult Function(dynamic theme)? changetheme,
+    required TResult orElse(),
+  }) {
+    if (changetheme != null) {
+      return changetheme(theme);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(Initialize value) initialize,
+    required TResult Function(Getbottomnavbarpage value) getbottomnavbarpage,
+    required TResult Function(Getthumbnail value) getthumbnail,
+    required TResult Function(ViewThumbnail value) viewthumbnail,
+    required TResult Function(Changetheme value) changetheme,
+  }) {
+    return changetheme(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult Function(Initialize value)? initialize,
+    TResult Function(Getbottomnavbarpage value)? getbottomnavbarpage,
+    TResult Function(Getthumbnail value)? getthumbnail,
+    TResult Function(ViewThumbnail value)? viewthumbnail,
+    TResult Function(Changetheme value)? changetheme,
+  }) {
+    return changetheme?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(Initialize value)? initialize,
+    TResult Function(Getbottomnavbarpage value)? getbottomnavbarpage,
+    TResult Function(Getthumbnail value)? getthumbnail,
+    TResult Function(ViewThumbnail value)? viewthumbnail,
+    TResult Function(Changetheme value)? changetheme,
+    required TResult orElse(),
+  }) {
+    if (changetheme != null) {
+      return changetheme(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class Changetheme implements HomeEvent {
+  const factory Changetheme({final dynamic theme}) = _$Changetheme;
+
+  dynamic get theme => throw _privateConstructorUsedError;
+  @JsonKey(ignore: true)
+  _$$ChangethemeCopyWith<_$Changetheme> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+/// @nodoc
 mixin _$HomeState {
   int get index => throw _privateConstructorUsedError;
   List<dynamic> get thumbnail => throw _privateConstructorUsedError;
+  dynamic get theme => throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
   $HomeStateCopyWith<HomeState> get copyWith =>
@@ -620,7 +799,7 @@ mixin _$HomeState {
 abstract class $HomeStateCopyWith<$Res> {
   factory $HomeStateCopyWith(HomeState value, $Res Function(HomeState) then) =
       _$HomeStateCopyWithImpl<$Res>;
-  $Res call({int index, List<dynamic> thumbnail});
+  $Res call({int index, List<dynamic> thumbnail, dynamic theme});
 }
 
 /// @nodoc
@@ -635,6 +814,7 @@ class _$HomeStateCopyWithImpl<$Res> implements $HomeStateCopyWith<$Res> {
   $Res call({
     Object? index = freezed,
     Object? thumbnail = freezed,
+    Object? theme = freezed,
   }) {
     return _then(_value.copyWith(
       index: index == freezed
@@ -645,6 +825,10 @@ class _$HomeStateCopyWithImpl<$Res> implements $HomeStateCopyWith<$Res> {
           ? _value.thumbnail
           : thumbnail // ignore: cast_nullable_to_non_nullable
               as List<dynamic>,
+      theme: theme == freezed
+          ? _value.theme
+          : theme // ignore: cast_nullable_to_non_nullable
+              as dynamic,
     ));
   }
 }
@@ -655,7 +839,7 @@ abstract class _$$_HomeStateCopyWith<$Res> implements $HomeStateCopyWith<$Res> {
           _$_HomeState value, $Res Function(_$_HomeState) then) =
       __$$_HomeStateCopyWithImpl<$Res>;
   @override
-  $Res call({int index, List<dynamic> thumbnail});
+  $Res call({int index, List<dynamic> thumbnail, dynamic theme});
 }
 
 /// @nodoc
@@ -672,6 +856,7 @@ class __$$_HomeStateCopyWithImpl<$Res> extends _$HomeStateCopyWithImpl<$Res>
   $Res call({
     Object? index = freezed,
     Object? thumbnail = freezed,
+    Object? theme = freezed,
   }) {
     return _then(_$_HomeState(
       index: index == freezed
@@ -682,6 +867,7 @@ class __$$_HomeStateCopyWithImpl<$Res> extends _$HomeStateCopyWithImpl<$Res>
           ? _value._thumbnail
           : thumbnail // ignore: cast_nullable_to_non_nullable
               as List<dynamic>,
+      theme: theme == freezed ? _value.theme : theme,
     ));
   }
 }
@@ -690,7 +876,7 @@ class __$$_HomeStateCopyWithImpl<$Res> extends _$HomeStateCopyWithImpl<$Res>
 
 class _$_HomeState implements _HomeState {
   const _$_HomeState(
-      {required this.index, required final List<dynamic> thumbnail})
+      {required this.index, required final List<dynamic> thumbnail, this.theme})
       : _thumbnail = thumbnail;
 
   @override
@@ -703,8 +889,11 @@ class _$_HomeState implements _HomeState {
   }
 
   @override
+  final dynamic theme;
+
+  @override
   String toString() {
-    return 'HomeState(index: $index, thumbnail: $thumbnail)';
+    return 'HomeState(index: $index, thumbnail: $thumbnail, theme: $theme)';
   }
 
   @override
@@ -714,14 +903,16 @@ class _$_HomeState implements _HomeState {
             other is _$_HomeState &&
             const DeepCollectionEquality().equals(other.index, index) &&
             const DeepCollectionEquality()
-                .equals(other._thumbnail, _thumbnail));
+                .equals(other._thumbnail, _thumbnail) &&
+            const DeepCollectionEquality().equals(other.theme, theme));
   }
 
   @override
   int get hashCode => Object.hash(
       runtimeType,
       const DeepCollectionEquality().hash(index),
-      const DeepCollectionEquality().hash(_thumbnail));
+      const DeepCollectionEquality().hash(_thumbnail),
+      const DeepCollectionEquality().hash(theme));
 
   @JsonKey(ignore: true)
   @override
@@ -732,12 +923,15 @@ class _$_HomeState implements _HomeState {
 abstract class _HomeState implements HomeState {
   const factory _HomeState(
       {required final int index,
-      required final List<dynamic> thumbnail}) = _$_HomeState;
+      required final List<dynamic> thumbnail,
+      final dynamic theme}) = _$_HomeState;
 
   @override
   int get index => throw _privateConstructorUsedError;
   @override
   List<dynamic> get thumbnail => throw _privateConstructorUsedError;
+  @override
+  dynamic get theme => throw _privateConstructorUsedError;
   @override
   @JsonKey(ignore: true)
   _$$_HomeStateCopyWith<_$_HomeState> get copyWith =>

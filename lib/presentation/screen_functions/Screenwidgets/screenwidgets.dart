@@ -2,6 +2,7 @@ import 'dart:io';
 
 import 'package:ease_player_bloc/application/bloc/video_bloc.dart';
 import 'package:ease_player_bloc/domain/models/favourite.dart';
+import 'package:ease_player_bloc/presentation/widgets/navigations/nextpage.dart';
 import 'package:ease_player_bloc/presentation/widgets/snackbar/snackbar.dart';
 import 'package:filesize/filesize.dart';
 import 'package:flutter/material.dart';
@@ -14,6 +15,7 @@ import 'package:video_thumbnail/video_thumbnail.dart';
 
 import '../../../application/home/home_bloc.dart';
 import '../../../domain/db_functions.dart';
+import '../../../domain/models/history.dart';
 import '../../../domain/models/model.dart';
 import '../../../main.dart';
 import '../../playvideos/videoplay.dart';
@@ -157,67 +159,84 @@ class ListVideos extends StatelessWidget {
               dur = getTimeString(duration[i]);
             }
 
-            return ListTile(
-              onTap: (() => Navigator.of(context).push(MaterialPageRoute(
-                  builder: ((BuildContext context) =>
-                      VideoPlay(path: name[index], name: fileName))))),
-              title: Padding(
-                padding: const EdgeInsets.only(bottom: 10.0),
-                child: Text(
-                  videoname,
-                ),
-              ),
-              subtitle: Text(size),
-              leading: BlocBuilder<HomeBloc, HomeState>(
-                builder: (context, state) {
-                  return thumblist.length <= i
-                      ? Container(
-                          alignment: Alignment.topRight,
-                          width: 97,
-                          height: 57,
-                          decoration: BoxDecoration(
-                            borderRadius: BorderRadius.circular(8),
-                            image: DecorationImage(
-                              image: Image.asset("asset/images/s.png").image,
-                              fit: BoxFit.cover,
-                            ),
-                          ),
-                        )
-                      : Container(
-                          alignment: Alignment.topRight,
-                          width: 97,
-                          height: 57,
-                          decoration: BoxDecoration(
-                            borderRadius: BorderRadius.circular(8),
-                            image: DecorationImage(
-                              image: MemoryImage(thumblist[i]),
-                              fit: BoxFit.cover,
-                            ),
-                          ),
-                          child: Container(
+            return BlocBuilder<VideoBloc, VideoState>(
+              builder: (context, state) {
+                return ListTile(
+                  onTap: (() {
+                    nextPage(
+                        page: VideoPlay(path: name[index], name: fileName),
+                        context: context);
+
+                    for (var i = 0; i < state.historyList.length; i++) {
+                      if (state.historyList[i].path == name[index]) {
+                        context.read<VideoBloc>().add(DelHistory(index: i));
+                        break;
+                      }
+                    }
+                    final _model = HistoryModel(path: name[index]);
+                    BlocProvider.of<VideoBloc>(context)
+                        .add(AddHistory(model: _model));
+                  }),
+                  title: Padding(
+                    padding: const EdgeInsets.only(bottom: 10.0),
+                    child: Text(
+                      videoname,
+                    ),
+                  ),
+                  subtitle: Text(size),
+                  leading: BlocBuilder<HomeBloc, HomeState>(
+                    builder: (context, state) {
+                      return thumblist.length <= i
+                          ? Container(
+                              alignment: Alignment.topRight,
+                              width: 97,
+                              height: 57,
                               decoration: BoxDecoration(
-                                  color: const Color.fromRGBO(0, 0, 0, 120),
-                                  borderRadius: BorderRadius.circular(5)),
-                              child: Padding(
-                                padding: const EdgeInsets.all(2.0),
-                                child: Text(
-                                  dur.substring(dur.length - 5, dur.length),
-                                  style: const TextStyle(
-                                      fontSize: 10, color: Colors.white),
+                                borderRadius: BorderRadius.circular(8),
+                                image: DecorationImage(
+                                  image:
+                                      Image.asset("asset/images/s.png").image,
+                                  fit: BoxFit.cover,
                                 ),
-                              )),
-                        );
-                },
-              ),
-              trailing: Padding(
-                padding: const EdgeInsets.only(right: 8.0),
-                child: IconButton(
-                    onPressed: () {
-                      moreDialogbox(
-                          context, videoname, myController, name[index]);
+                              ),
+                            )
+                          : Container(
+                              alignment: Alignment.topRight,
+                              width: 97,
+                              height: 57,
+                              decoration: BoxDecoration(
+                                borderRadius: BorderRadius.circular(8),
+                                image: DecorationImage(
+                                  image: MemoryImage(thumblist[i]),
+                                  fit: BoxFit.cover,
+                                ),
+                              ),
+                              child: Container(
+                                  decoration: BoxDecoration(
+                                      color: const Color.fromRGBO(0, 0, 0, 120),
+                                      borderRadius: BorderRadius.circular(5)),
+                                  child: Padding(
+                                    padding: const EdgeInsets.all(2.0),
+                                    child: Text(
+                                      dur.substring(dur.length - 5, dur.length),
+                                      style: const TextStyle(
+                                          fontSize: 10, color: Colors.white),
+                                    ),
+                                  )),
+                            );
                     },
-                    icon: const Icon(Icons.more_vert)),
-              ),
+                  ),
+                  trailing: Padding(
+                    padding: const EdgeInsets.only(right: 8.0),
+                    child: IconButton(
+                        onPressed: () {
+                          moreDialogbox(
+                              context, videoname, myController, name[index]);
+                        },
+                        icon: const Icon(Icons.more_vert)),
+                  ),
+                );
+              },
             );
           },
           separatorBuilder: (BuildContext context, int index) => const Divider(
@@ -533,7 +552,7 @@ morelist(
 listhistoryvideos({required count}) {
   return BlocBuilder<VideoBloc, VideoState>(
     builder: (context, state) {
-      BlocProvider.of<VideoBloc>(context).add(GetallHistory());
+      BlocProvider.of<VideoBloc>(context).add(const GetallHistory());
       return state.historyList.isEmpty
           ? Center(child: Text('No videos in history'))
           : ListView(
@@ -553,11 +572,12 @@ listhistoryvideos({required count}) {
                     String fileName = file.path.split('/').last;
                     var videoname = basenameWithoutExtension(fileName);
                     return ListTile(
-                      onTap: (() => Navigator.of(context).push(
-                          MaterialPageRoute(
-                              builder: ((BuildContext context) => VideoPlay(
-                                  path: state.historyList[index].path,
-                                  name: fileName))))),
+                      onTap: (() {
+                        Navigator.of(context).push(MaterialPageRoute(
+                            builder: ((BuildContext context) => VideoPlay(
+                                path: state.historyList[index].path,
+                                name: fileName))));
+                      }),
                       title: Text(videoname),
                       leading: Container(
                         alignment: Alignment.topRight,

@@ -1,8 +1,8 @@
 import 'package:bloc/bloc.dart';
-import 'package:ease_player_bloc/main.dart';
-import 'package:ease_player_bloc/presentation/screen_functions/Screenwidgets/screenwidgets.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:injectable/injectable.dart';
+
+import '../../presentation/screen_functions/Screenwidgets/screenwidgets.dart';
 
 part 'home_event.dart';
 part 'home_state.dart';
@@ -18,6 +18,8 @@ class HomeBloc extends Bloc<HomeEvent, HomeState> {
       getinfo();
       thumbnailGetter();
     });
-    
+    on<Changetheme>((event, emit) {
+      emit(state.copyWith(theme: event.theme));
+    });
   }
 }
